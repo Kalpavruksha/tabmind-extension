@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TabMind</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            width: 350px;
+            min-height: 400px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .popup-container {
+            padding: var(--spacing-lg);
+        }
+
+        .popup-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .popup-logo {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .popup-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .popup-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .quick-stat {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+        }
+
+        .quick-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .quick-stat-label {
+            font-size: 0.625rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .quick-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .action-btn:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .action-icon {
+            font-size: 1.5rem;
+        }
+
+        .action-text {
+            flex: 1;
+        }
+
+        .action-title {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .action-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="popup-container">
+        <div class="popup-header">
+            <div class="popup-logo">🧠</div>
+            <h1 class="popup-title">TabMind</h1>
+            <p class="popup-subtitle">Intelligent Tab Management</p>
+        </div>
+
+        <!-- Mental State -->
+        <div id="mentalStatePopup" class="mental-state" style="margin-bottom: var(--spacing-lg);">
+            <div class="mental-state-icon focused" id="popupMentalStateIcon">🎯</div>
+            <div class="mental-state-content">
+                <div class="mental-state-title" id="popupMentalStateTitle">Focused</div>
+                <div class="mental-state-message" id="popupMentalStateMessage">You're in the zone!</div>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="quick-stats">
+            <div class="quick-stat">
+                <div class="quick-stat-value" id="popupTabsCount">0</div>
+                <div class="quick-stat-label">Tabs</div>
+            </div>
+            <div class="quick-stat">
+                <div class="quick-stat-value" id="popupDuplicates">0</div>
+                <div class="quick-stat-label">Dupes</div>
+            </div>
+            <div class="quick-stat">
+                <div class="quick-stat-value" id="popupSnapshots">0</div>
+                <div class="quick-stat-label">Saved</div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <div class="action-btn" id="openSidePanelBtn">
+                <div class="action-icon">📊</div>
+                <div class="action-text">
+                    <div class="action-title">Open Dashboard</div>
+                    <div class="action-desc">View all tabs and insights</div>
+                </div>
+            </div>
+
+            <div class="action-btn" id="saveSnapshotPopupBtn">
+                <div class="action-icon">💾</div>
+                <div class="action-text">
+                    <div class="action-title">Save Snapshot</div>
+                    <div class="action-desc">Save current tabs for later</div>
+                </div>
+            </div>
+
+            <div class="action-btn" id="autoGroupPopupBtn">
+                <div class="action-icon">📁</div>
+                <div class="action-text">
+                    <div class="action-title">Auto Group</div>
+                    <div class="action-desc">Organize tabs intelligently</div>
+                </div>
+            </div>
+
+            <div class="action-btn" id="closeDuplicatesPopupBtn">
+                <div class="action-icon">🔄</div>
+                <div class="action-text">
+                    <div class="action-title">Close Duplicates</div>
+                    <div class="action-desc">Remove duplicate tabs</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="#" class="footer-link" id="settingsLink">⚙️ Settings</a>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

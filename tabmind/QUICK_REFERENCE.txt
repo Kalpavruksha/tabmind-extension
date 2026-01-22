@@ -1,0 +1,49 @@
+╔══════════════════════════════════════════════════════════════╗
+║                  🧠 TABMIND QUICK REFERENCE                  ║
+╚══════════════════════════════════════════════════════════════╝
+
+📦 INSTALLATION
+1. Open chrome://extensions/
+2. Enable "Developer mode"
+3. Click "Load unpacked"
+4. Select tabmind folder
+5. Pin extension to toolbar
+
+⌨️ KEYBOARD SHORTCUTS
+Ctrl+Shift+S  →  Save snapshot
+Ctrl+Shift+T  →  Open side panel
+
+🎯 QUICK ACTIONS
+💾 Save Snapshot      →  Save current tabs
+📁 Auto Group         →  Organize tabs
+🔄 Close Duplicates   →  Remove duplicates
+😴 Suspend Inactive   →  Free memory
+
+🧠 MENTAL STATES
+🎯 Focused           →  < 10 tabs, low switching
+😵 Distracted        →  Rapid tab switching
+😰 Overwhelmed       →  30+ tabs open
+🎮 Procrastinating   →  Multiple entertainment sites
+
+📊 SIDE PANEL TABS
+📑 All Tabs          →  View & search all tabs
+💾 Snapshots         →  Saved sessions
+📊 Insights          →  Time tracking charts
+💡 Suggestions       →  Grouping suggestions
+
+⚙️ SETTINGS
+chrome://extensions/ → TabMind → Details → Extension options
+
+🐛 TROUBLESHOOTING
+- Extension not loading? Reload it in chrome://extensions/
+- Side panel not opening? Use Ctrl+Shift+T
+- Data not saving? Check console for errors
+
+📚 FULL DOCS
+README.md            →  Complete documentation
+QUICKSTART.md        →  Getting started guide
+TESTING.md           →  Test scenarios
+
+═══════════════════════════════════════════════════════════════
+Made with 🧠 and ❤️  |  100% Local & Private  |  Open Source
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TabMind Settings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            padding: var(--spacing-xl);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .settings-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-xl);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .settings-logo {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .settings-title {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .settings-section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .setting-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .setting-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .setting-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .setting-description {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--bg-tertiary);
+            transition: var(--transition-base);
+            border-radius: 26px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: var(--transition-base);
+            border-radius: 50%;
+        }
+
+        input:checked+.toggle-slider {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        input:checked+.toggle-slider:before {
+            transform: translateX(24px);
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .slider {
+            flex: 1;
+            height: 6px;
+            border-radius: var(--radius-lg);
+            background: var(--bg-tertiary);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            cursor: pointer;
+            border: none;
+        }
+
+        .slider-value {
+            min-width: 60px;
+            text-align: right;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+        }
+
+        .save-button {
+            position: fixed;
+            bottom: var(--spacing-xl);
+            right: var(--spacing-xl);
+            padding: var(--spacing-md) var(--spacing-xl);
+            font-size: 1rem;
+        }
+
+        .data-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .data-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .data-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .data-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="settings-header">
+        <div class="settings-logo">🧠</div>
+        <h1 class="settings-title">TabMind Settings</h1>
+        <p class="text-muted">Customize your intelligent tab management experience</p>
+    </div>
+
+    <!-- General Settings -->
+    <div class="settings-section">
+        <h2 class="section-title">⚙️ General Settings</h2>
+
+        <div class="setting-item">
+            <div class="setting-header">
+                <div class="setting-label">Enable Mental State Detection</div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="enableMentalState" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="setting-description">
+                Analyze your tab usage patterns to detect focus, distraction, or overwhelm
+            </div>
+        </div>
+
+        <div class="setting-item">
+            <div class="setting-header">
+                <div class="setting-label">Show Gentle Nudges</div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="enableNudges" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="setting-description">
+                Receive gentle notifications when you're distracted or overwhelmed
+            </div>
+        </div>
+
+        <div class="setting-item">
+            <div class="setting-header">
+                <div class="setting-label">Auto-Group Tabs</div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="enableAutoGroup">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="setting-description">
+                Automatically group tabs by domain or topic (experimental)
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Suspension -->
+    <div class="settings-section">
+        <h2 class="section-title">😴 Tab Suspension</h2>
+
+        <div class="setting-item">
+            <div class="setting-header">
+                <div class="setting-label">Enable Tab Suspension</div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="enableSuspension" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="setting-description">
+                Automatically suspend inactive tabs to save memory
+            </div>
+        </div>
+
+        <div class="setting-item">
+            <div class="setting-label">Suspend After (minutes)</div>
+            <div class="setting-description">
+                How long a tab must be inactive before being suspended
+            </div>
+            <div class="slider-container">
+                <input type="range" min="5" max="120" value="30" class="slider" id="suspendAfter">
+                <span class="slider-value" id="suspendAfterValue">30 min</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mental State Detection -->
+    <div class="settings-section">
+        <h2 class="section-title">🧠 Mental State Detection</h2>
+
+        <div class="setting-item">
+            <div class="setting-label">Overwhelmed Threshold (tabs)</div>
+            <div class="setting-description">
+                Number of open tabs before being considered "overwhelmed"
+            </div>
+            <div class="slider-container">
+                <input type="range" min="10" max="100" value="30" class="slider" id="overwhelmedThreshold">
+                <span class="slider-value" id="overwhelmedThresholdValue">30 tabs</span>
+            </div>
+        </div>
+
+        <div class="setting-item">
+            <div class="setting-label">Distraction Sensitivity</div>
+            <div class="setting-description">
+                How many tab switches per minute indicates distraction
+            </div>
+            <div class="slider-container">
+                <input type="range" min="5" max="30" value="10" class="slider" id="distractionSensitivity">
+                <span class="slider-value" id="distractionSensitivityValue">10/min</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data & Privacy -->
+    <div class="settings-section">
+        <h2 class="section-title">🔒 Data & Privacy</h2>
+
+        <div class="data-section">
+            <div class="data-card">
+                <div class="data-value" id="totalTabsTracked">0</div>
+                <div class="data-label">Tabs Tracked</div>
+            </div>
+            <div class="data-card">
+                <div class="data-value" id="totalSnapshots">0</div>
+                <div class="data-label">Snapshots Saved</div>
+            </div>
+            <div class="data-card">
+                <div class="data-value" id="totalArchivedTabs">0</div>
+                <div class="data-label">Archived Tabs</div>
+            </div>
+            <div class="data-card">
+                <div class="data-value" id="storageUsed">0 KB</div>
+                <div class="data-label">Storage Used</div>
+            </div>
+        </div>
+
+        <div class="setting-item" style="margin-top: var(--spacing-lg);">
+            <div class="setting-header">
+                <div class="setting-label">Export All Data</div>
+                <button class="btn btn-secondary" id="exportDataBtn">📥 Export</button>
+            </div>
+            <div class="setting-description">
+                Download all your TabMind data as JSON
+            </div>
+        </div>
+
+        <div class="setting-item">
+            <div class="setting-header">
+                <div class="setting-label">Clear All Data</div>
+                <button class="btn btn-danger" id="clearDataBtn">🗑️ Clear</button>
+            </div>
+            <div class="setting-description">
+                Delete all TabMind data (cannot be undone!)
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div class="settings-section">
+        <h2 class="section-title">ℹ️ About</h2>
+        <div class="card">
+            <div class="card-body">
+                <p><strong>TabMind</strong> - Intelligent Tab Manager</p>
+                <p>Version: 1.0.0</p>
+                <p>A psychology-driven extension that helps you manage browser tabs intelligently.</p>
+                <p style="margin-top: var(--spacing-md);">
+                    <a href="README.md" class="btn btn-ghost btn-sm">📖 Documentation</a>
+                    <a href="https://github.com/yourusername/tabmind" class="btn btn-ghost btn-sm">🐙 GitHub</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary save-button" id="saveSettingsBtn">
+        💾 Save Settings
+    </button>
+
+    <script src="settings.js"></script>
+</body>
+
+</html>
