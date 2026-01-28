@@ -6,7 +6,6 @@ class TabMindUI {
         this.searchQuery = '';
         this.init();
     } 
-
     async init() {
         this.setupEventListeners();
         await this.loadData();
