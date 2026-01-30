@@ -1,6 +1,6 @@
 // TabMind Side Panel JavaScript
 // Handles UI interactions and communication with background service
-class TabMindUI {
+class TabMindUI { 
     constructor() {
         this.currentTab = 'tabs';
         this.searchQuery = '';
