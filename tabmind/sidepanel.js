@@ -10,8 +10,7 @@ class TabMindUI {
         this.setupEventListeners();
         await this.loadData();
         this.startAutoRefresh();
-    }
-
+    
     setupEventListeners() {
         // Navigation tabs
         document.querySelectorAll('.nav-tab').forEach(tab => {
