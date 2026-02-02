@@ -18,7 +18,7 @@ class TabMindEngine {
 
         // Set up listeners
         this.setupListeners();
-
+ 
         // Start periodic tasks
         chrome.alarms.create('analyzeState', { periodInMinutes: 5 });
         chrome.alarms.create('suspendInactive', { periodInMinutes: 15 });
