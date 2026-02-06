@@ -9,7 +9,7 @@ class TabMindEngine {
         this.lastActivityTime = Date.now();
         this.init();
     } 
-
+ 
     async init() {
         // Load saved data
         const data = await chrome.storage.local.get(['tabData', 'sessions', 'settings']);
