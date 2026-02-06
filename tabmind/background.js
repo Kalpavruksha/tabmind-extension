@@ -8,7 +8,7 @@ class TabMindEngine {
         this.mentalState = 'focused';
         this.lastActivityTime = Date.now();
         this.init();
-    }
+    } 
 
     async init() {
         // Load saved data
