@@ -5,7 +5,7 @@
 ![TabMind Logo](icons/icon128.png)
 
 ## ✨ Unique Features
-
+ 
 ### 🎯 Mental State Detection
 TabMind analyzes your tab usage patterns to detect your current mental state:
 - **Focused** 🎯 - Few tabs, minimal switching
