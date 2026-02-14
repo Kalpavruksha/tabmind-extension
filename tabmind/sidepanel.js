@@ -5,7 +5,7 @@ class TabMindUI {
         this.currentTab = 'tabs';
         this.searchQuery = '';
         this.init();
-    }
+    } 
     async init() {
         this.setupEventListeners();
         await this.loadData();
