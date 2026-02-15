@@ -1,7 +1,7 @@
 # 🧠 TabMind - Intelligent Tab Manager
 
 > A psychology-driven Chrome extension that understands your work patterns and mental state to help you manage browser tabs intelligently.
-
+ 
 ![TabMind Logo](icons/icon128.png)
 
 ## ✨ Unique Features
