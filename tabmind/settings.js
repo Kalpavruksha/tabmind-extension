@@ -1,5 +1,5 @@
 // TabMind Settings JavaScript
-
+ 
 class SettingsManager { 
     constructor() {
         this.defaultSettings = {
