@@ -1,6 +1,6 @@
 // TabMind Settings JavaScript
 
-class SettingsManager {
+class SettingsManager { 
     constructor() {
         this.defaultSettings = {
             enableMentalState: true,
